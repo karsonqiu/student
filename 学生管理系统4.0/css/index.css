@@ -1,0 +1,730 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #606266;
+    font-family: 'PingFang SC';
+}
+
+body {
+    font-size: 14px;
+    background-color: #F6F7FB;
+}
+
+ul {
+    list-style: none;
+}
+
+.toolbar {
+    width: 100vw;
+    height: 3.8rem;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #fff;
+    box-shadow: 0px 3px 6px rgba(179, 216, 255, 0.2);
+    top: 0;
+    z-index: 1;
+}
+
+@keyframes rotates {
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(25deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-25deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.toolbar .nav-button {
+    display: flex;
+    width: 2rem;
+    height: 1.8rem;
+    background-color: #6280F3;
+    margin: 0 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+.toolbar .nav-button span {
+    display: block;
+    width: 60%;
+    height: 2px;
+    background-color: #fff;
+    margin: 2px 0;
+
+}
+
+.toolbar .nav-button:hover span {
+    animation: rotates 2s infinite;
+}
+
+.toolbar .toolbar-nav {
+    position: absolute;
+    top: 3.8rem;
+    left: 0;
+    width: 100%;
+    background-color: #6280F3;
+    overflow: hidden;
+    display: none;
+}
+
+.toolbar .toolbar-nav .list-item {
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0.6rem 0;
+}
+
+.toolbar .toolbar-nav .pitch {
+    background: rgba(128, 152, 247, 0.5);
+}
+
+.toolbar .toolbar-nav .list-item:hover {
+    background: rgba(128, 152, 247, 0.5);
+}
+
+.toolbar .toolbar-logo {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #6280F3;
+    display: none;
+}
+
+.toolbar ._tool {
+    float: right;
+    margin: 0 30px;
+    height: 100%;
+}
+
+.toolbar ._tool .fullscreen,
+.setup {
+    width: 36px;
+    height: 36px;
+    float: left;
+    margin: 0 4px;
+    margin-top: 14px;
+    cursor: pointer;
+}
+
+.toolbar ._tool div img {
+    width: 100%;
+    height: 100%;
+}
+
+.toolbar ._tool .setup {
+    position: relative;
+}
+
+.toolbar ._tool .setup:hover .exit {
+    display: block;
+}
+
+.toolbar ._tool .setup .exit {
+    box-shadow: 3px 0px 6px rgba(179, 216, 255, 0.2);
+    position: absolute;
+    width: 76px;
+    right: -22px;
+    top: 40px;
+    display: none;
+}
+
+.toolbar ._tool .setup .exit .triangle {
+    width: 0;
+    height: 0;
+    position: absolute;
+    border: 10px solid transparent;
+    border-left-width: 8px;
+    border-right-width: 8px;
+    border-bottom-color: #6280F3;
+    left: 28px;
+    top: -20px;
+}
+
+.toolbar ._tool .setup .exit ._exit {
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #6280F3;
+}
+
+.Nav {
+    position: fixed;
+    width: 14%;
+    height: 100%;
+    top: 0;
+    background-color: #6280F3;
+    box-shadow: 10px 0px 6px rgba(179, 216, 255, 0.2);
+    border-radius: 0px 0px 100px 0px;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.Nav .sun {
+    position: absolute;
+    z-index: -1;
+}
+
+.Nav .sun img {
+    width: 100%;
+    display: block;
+}
+
+.Nav .topsun {
+    width: 70%;
+    top: 0;
+    left: 0;
+}
+
+.Nav .bottomsun {
+    width: 60%;
+    bottom: 0;
+    left: 0;
+}
+
+.Nav .logo {
+    letter-spacing: 2px;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-left: 20px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Nav .headPor {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.Nav .headPor .por {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.Nav .headPor .por img {
+    width: 100%;
+}
+
+.Nav .headPor .name {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    color: #303133;
+    line-height: 25px;
+}
+
+.Nav ._nav {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.Nav ._nav li {
+    height: 40px;
+    text-align: center;
+    line-height: 42px;
+    color: #DFE6FD;
+    font-size: 16px;
+    margin-top: 14px;
+    cursor: pointer;
+}
+
+.Nav ._nav .pitch {
+    background: rgba(74, 105, 227, 0.5);
+    border-radius: 24px;
+    color: #FFF;
+}
+
+.Nav ._nav li:hover {
+    background: rgba(128, 152, 247, 0.5);
+    border-radius: 24px;
+    color: #FFF;
+}
+
+.Nav .shrink {
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    bottom: 18px;
+    right: 26px;
+    cursor: pointer;
+}
+
+.Nav .shrink img {
+    width: 100%;
+    height: 100%;
+}
+
+.Nav .memu {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    top: 14px;
+    right: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+.Nav .memu img {
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    width: calc(86% - 28px);
+    height: calc(100% - 88px);
+    position: fixed;
+    top: 74px;
+    left: calc(14% + 14px);
+}
+
+.content .content-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.content .show-list {
+    display: block;
+}
+
+.content .screenbox {
+    background-color: #fff;
+    border-radius: 8px;
+    height: 64px;
+    padding: 14px 20px;
+}
+
+.content .screenbox .check-radio label {
+    margin-right: 10px;
+    line-height: 36px;
+}
+
+.content .screenbox .check-inreset button {
+    width: 80px;
+    height: 36px;
+    background-color: #6280F3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.content .screenbox .check-inreset .check-reset {
+    width: 80px;
+    height: 36px;
+    border: 1px solid #dcdfe6;
+    background-color: #fff;
+    color: #606266;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.content .screenbox .check-inreset #check-reset {
+    display: none;
+}
+
+.content .tablebox {
+    margin-top: 14px;
+    background-color: #fff;
+    width: 100%;
+    height: calc(100% - 82px);
+    border-radius: 8px;
+}
+
+.content .tablebox .tableheight {
+    position: relative;
+    width: 100%;
+    height: calc(84% - 54px);
+    /* overflow: hidden; */
+    /* overflow-y: hidden; */
+}
+
+.content .tablebox .tableheight .empty {
+    position: absolute;
+    width: 16%;
+    top: 34%;
+    left: 42%;
+    z-index: 0;
+}
+
+.content .tablebox .tableheight .empty img {
+    width: 100%;
+}
+
+.content .tablebox .tableheight table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    line-height: 44px;
+    white-space:nowrap;
+}
+
+.content .tablebox table thead tr {
+    background-color: #f5f7fa;
+    border-top: 1px solid #EBEEF5;
+}
+
+.content .tablebox table thead tr th {
+    font-size: 1rem;
+    color: #A7ABB4;
+}
+
+.content .tablebox table tbody tr {
+    border-top: 1px solid #EBEEF5;
+    border-bottom: 1px solid #EBEEF5;
+}
+
+.content .tablebox table tbody tr td {
+    font-size: 1rem;
+    color: #606266;
+}
+
+.content .tablebox table tbody tr:hover {
+    background-color: #FAFAFA;
+}
+
+.content .tablebox table tbody tr td span {
+    font-size: 1rem;
+    color: #6280F3;
+    margin: 0 6px;
+    cursor: pointer;
+}
+
+.content .tablebox .tablehead {
+    height: 54px;
+    line-height: 54px;
+    padding: 0 20px;
+    color: #606266;
+}
+
+.content .tablebox .tablehead span {
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+.content .tablebox .tablehead .student::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 10px;
+    background-color: #6280F3;
+    border-radius: 25%;
+}
+
+.content .tablebox .tablehead .addstudent {
+    cursor: pointer;
+    float: right;
+    color: #6280F3;
+}
+
+.content .tablebox .tablehead .addstudent::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url('.../images/add.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.content .tablebox .pageNum {
+    position: absolute;
+    width: calc(100% - 40px);
+    height: 30px;
+    right: 20px;
+    bottom: 30px;
+    display: none;
+}
+
+.pageNum .my-page {
+    position: absolute;
+    right: 20px;
+}
+
+.pageNum .page-size,
+.pageNum .my-turn-page,
+.pageNum .my-turn-page li,
+.pageNum .my-turn-page span {
+    float: left;
+}
+
+.pageNum .page-size {
+    margin-right: 20px;
+}
+
+.pageNum .page-size #page-size-inp {
+    width: 60px;
+    height: 28px;
+    outline: none;
+    border: 1px solid #dcdfe6;
+    line-height: 28px;
+    font-size: 16px;
+    padding-left: 4px;
+    box-sizing: border-box;
+}
+
+.pageNum .my-page .my-turn-page li {
+    text-align: center;
+    line-height: 28px;
+    color: #303133;
+    margin: 0 5px;
+    width: 30px;
+    height: 28px;
+    background-color: #F4F4F5;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.pageNum .my-page .my-turn-page .optPage {
+    background-color: #6280F3;
+    color: #fff;
+}
+
+.addcontent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.addcontent .addcontent-box {
+    position: absolute;
+    width: 28%;
+    left: 42%;
+    top: 20%;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.addcontent .addcontent-box .toptitle {
+    position: relative;
+    width: 100%;
+    height: 44px;
+    background-color: #6280F3;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+}
+
+.addcontent .addcontent-box .toptitle .shutdowm {
+    position: absolute;
+    width: 20px;
+    right: 12px;
+    top: 0;
+    cursor: pointer;
+}
+
+.addcontent .addcontent-box .toptitle .shutdowm img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.addcontent .addcontent-box #add-student-form {
+    padding: 10px 0;
+    width: 100%;
+    height: 100%;
+}
+
+.addcontent .addcontent-box #add-student-form div {
+    color: #606266;
+    margin: 12px 0;
+}
+
+.addcontent .addcontent-box #add-student-form div label:not(.sex) {
+    margin-right: 8px;
+    width: 22%;
+    display: inline-block;
+    text-align: right;
+}
+
+.addcontent .addcontent-box #add-student-form .intext input {
+    padding-left: 10px;
+    width: 60%;
+    border: 1px solid #dcdfe6;
+    height: 32px;
+    border-radius: 4px;
+}
+
+.addcontent .addcontent-box #add-student-form .inreset button {
+    width: 80px;
+    height: 36px;
+    background-color: #6280F3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 8px 0;
+}
+
+.addcontent .addcontent-box #add-student-form .inreset input {
+    width: 80px;
+    height: 36px;
+    background-color: #fff;
+    border: 1px solid #DCDFE6;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.redact {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.redact .redact-box {
+    position: absolute;
+    width: 28%;
+    left: 42%;
+    top: 20%;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.redact .redact-box .toptitle {
+    position: relative;
+    width: 100%;
+    height: 44px;
+    background-color: #6280F3;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    text-align: center;
+    line-height: 44px;
+    color: #fff;
+}
+
+.redact .redact-box .toptitle .redact-shutdowm {
+    position: absolute;
+    width: 20px;
+    right: 12px;
+    top: 0;
+    cursor: pointer;
+}
+
+.redact .redact-box .toptitle .redact-shutdowm img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.redact .redact-box #redact-form {
+    padding: 10px 0;
+    width: 100%;
+    height: 100%;
+}
+
+.redact .redact-box #redact-form div {
+    color: #606266;
+    margin: 12px 0;
+}
+
+.redact .redact-box #redact-form div label:not(.sex) {
+    margin-right: 8px;
+    width: 22%;
+    display: inline-block;
+    text-align: right;
+}
+
+.redact .redact-box #redact-form .intext input {
+    padding-left: 10px;
+    width: 60%;
+    border: 1px solid #dcdfe6;
+    height: 32px;
+    border-radius: 4px;
+}
+
+.redact .redact-box #redact-form .intext #redact-number {
+    background-color: #f5f7fa;
+}
+
+.redact .redact-box #redact-form .inreset #redact-submit {
+    width: 80px;
+    height: 36px;
+    background-color: #6280F3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 8px 0;
+}
+
+@media all and (max-width:768px) {
+    .toolbar {
+        justify-content: space-between;
+    }
+
+    .toolbar .nav-button {
+        display: flex;
+    }
+
+    .toolbar .toolbar-logo {
+        display: block;
+    }
+
+    .toolbar .fullscreen {
+        display: none;
+    }
+
+    .Nav {
+        display: none;
+    }
+
+    .content {
+        width: calc(100% - 28px) !important;
+        left: 14px !important;
+    }
+
+    .addcontent .addcontent-box {
+        width: 50%;
+        left: 25%;
+    }
+
+    .redact .redact-box {
+        width: 50%;
+        left: 25%;
+    }
+}

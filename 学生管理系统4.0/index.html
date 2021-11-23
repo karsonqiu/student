@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理系统</title>
+    <link rel='stylesheet' type="text/css" href="./bootstrap/css/bootstrap.min.css">
+    <link rel='stylesheet' type="text/css" href="./css/index.css">
+</head>
+
+<body>
+    <header class="toolbar">
+        <div class="_tool">
+            <div class="fullscreen">
+                <img src='images/fullscreen.png'>
+            </div>
+
+            <div class="setup">
+                <img src='images/setup.png'>
+                <div class="exit">
+                    <div class="triangle"></div>
+                    <div class="_exit">退出</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toolbar-logo">
+            学生管理系统
+        </div>
+
+        <div class="nav-button">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="toolbar-nav">
+            <li class="list-item student-list pitch" data-id="student-list">学生列表</li>
+            <li class="list-item student-echarts" data-id="student-echarts">数据统计</li>
+            <li class="list-item student-perm" data-id="student-perm">权限管理</li>
+        </ul>
+
+    </header>
+
+    <aside class="Nav">
+        <div class="topsun sun"><img src="images/topsun.png"></div>
+        <div class="bottomsun sun"><img src="images/bottomsun.png"></div>
+        <div class="logo">学生管理系统</div>
+        <div class="headPor">
+            <div class="por">
+                <img src="images/headpor.png">
+            </div>
+            <span class="name">张大炮</span>
+        </div>
+        <ul class="_nav">
+            <li class="list-item student-list pitch" data-id="student-list">学生列表</li>
+            <li class="list-item student-echarts" data-id="student-echarts">数据统计</li>
+            <li class="list-item student-perm" data-id="student-perm">权限管理</li>
+        </ul>
+        <div class="shrink">
+            <img src="images/shrink.png">
+        </div>
+        <div class="memu">
+            <img src="images/memu.png">
+        </div>
+    </aside>
+    <div class="content">
+        <div id="student-list" class="content-item show-list" data-id="student-list">
+            <form class="row screenbox mx-0 ">
+                <div class="form-group col-3 check px-0">
+                    <input class="form-control" type="text" id='check-search' name='search' placeholder='请输入学号/邮箱'>
+                </div>
+                <div class="col-3 check-radio">
+                    <label for=''>性别</label>
+                    <input type='radio' id='check-all' name='sex' value="-1" checked>
+                    <label for='check-all' class="check-sex">全部</label>
+                    <input type='radio' id='check-men' name='sex' value="0">
+                    <label for='check-men' class="check-sex">男</label>
+                    <input type='radio' id='check-women' name='sex' value="1">
+                    <label for='check-women' class="check-sex">女</label>
+                </div>
+                <div class='col-auto check-inreset'>
+                    <button class="check-button">查询</button>
+                    <input type='reset' id="check-reset">
+                    <button class="check-reset">重置</button>
+                </div>
+            </form>
+            <div class="tablebox">
+                <div class="tablehead">
+                    <span class="student">学生列表</span>
+                    <span class="addstudent">新增学生</span>
+                </div>
+                <div class="tableheight">
+                    <div class="empty">
+                        <img src="./images/empty.png">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>学号</th>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>邮箱</th>
+                                    <th>年龄</th>
+                                    <th>手机号</th>
+                                    <th>住址</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="information">
+                                <tr>
+                                    <td>1</td>
+                                    <td>0001</td>
+                                    <td>张大炮</td>
+                                    <td>男</td>
+                                    <td>123456@162.com</td>
+                                    <td>18</td>
+                                    <td>13302173597</td>
+                                    <td>江苏</td>
+                                    <td>
+                                        <span>编辑</span><span>删除</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="pageNum">
+
+                </div>
+            </div>
+            <div class="redact">
+                <div class="redact-box">
+                    <div class="toptitle">编辑信息
+                        <div class="redact-shutdowm">
+                            <img src="images/shutdowm.png">
+                        </div>
+                    </div>
+                    <form action="#" id="redact-form">
+                        <div class="intext">
+                            <label for='redact-name'>姓名</label>
+                            <input type='text' id='redact-name' name='name'>
+                        </div>
+                        <div class="inradio">
+                            <label for=''>性别</label>
+                            <input type='radio' id='redact-men' value="0" name='sex' checked>
+                            <label for='redact-men' class="sex">男</label>
+                            <input type='radio' id='redact-women' value='1' name='sex'>
+                            <label for='redact-women' class="sex">女</label>
+                        </div>
+                        <div class="intext">
+                            <label for='redact-email'>邮箱</label>
+                            <input type='text' id='redact-email' name='email'>
+                        </div>
+                        <div class="intext">
+                            <label for='redact-number'>学号</label>
+                            <input type='text' id='redact-number' name='sNo' readonly>
+                        </div>
+                        <div class="intext">
+                            <label for='redact-years'>出生年</label>
+                            <input type='text' id='redact-years' name='birth'>
+                        </div>
+                        <div class="intext">
+                            <label for='redact-phone'>手机号</label>
+                            <input type='text' id='redact-phone' name='phone'>
+                        </div>
+                        <div class="intext">
+                            <label for='redact-address'>住址</label>
+                            <input type='text' id='redact-address' name='address'>
+                        </div>
+                        <div class="inreset">
+                            <label></label>
+                            <button id="redact-submit">确认修改</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="addcontent">
+                <div class="addcontent-box">
+                    <div class="toptitle">新增学生
+                        <div class="shutdowm">
+                            <img src="images/shutdowm.png">
+                        </div>
+                    </div>
+                    <form action="#" id="add-student-form">
+                        <div class="intext">
+                            <label for='name'>姓名</label>
+                            <input type='text' id='name' name='name'>
+                        </div>
+                        <div class="inradio">
+                            <label for=''>性别</label>
+                            <input type='radio' id='men' value="0" name='sex' checked>
+                            <label for='men' class="sex">男</label>
+                            <input type='radio' id='women' value='1' name='sex'>
+                            <label for='women' class="sex">女</label>
+                        </div>
+                        <div class="intext">
+                            <label for='email'>邮箱</label>
+                            <input type='text' id='email' name='email'>
+                        </div>
+                        <div class="intext">
+                            <label for='number'>学号</label>
+                            <input type='text' id='number' name='sNo'>
+                        </div>
+                        <div class="intext">
+                            <label for='years'>出生年</label>
+                            <input type='text' id='years' name='birth'>
+                        </div>
+                        <div class="intext">
+                            <label for='phone'>手机号</label>
+                            <input type='text' id='phone' name='phone'>
+                        </div>
+                        <div class="intext">
+                            <label for='address'>住址</label>
+                            <input type='text' id='address' name='address'>
+                        </div>
+                        <div class="inreset">
+                            <label></label>
+                            <button id="addsubmit">提交</button>
+                            <input type='reset' id="reset">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="student-echarts" class="content-item" data-id="student-echarts">
+            学生统计
+        </div>
+        <div id="student-perm" class="content-item" data-id="student-perm">
+            权限管理
+        </div>
+    </div>
+
+    <script src="./bootstrap/js/bootstrap.min.js"></script>
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script type='text/javascript' src='./js/ajax.js'></script>
+    <script type='text/javascript' src='./js/cookie.js'></script>
+    <script src="./js/page.js"></script>
+    <script type='text/javascript' src='./js/index.js'></script>
+</body>
+
+</html>
