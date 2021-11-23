@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .demo {
+            width: 50%;
+            height: 100px;
+            position: relative;
+            border: 1px solid #000;
+        }
+
+        .demo .my-page {
+            position: absolute;
+            right: 20px;
+            bottom: 30px;
+        }
+
+        .page-size,
+        .my-turn-page,
+        .my-turn-page li,
+        .my-turn-page span {
+            float: left;
+        }
+
+        .page-size {
+            margin-right: 20px;
+        }
+
+        .page-size #page-size-inp {
+            width: 60px;
+            height: 28px;
+            outline: none;
+            border: 1px solid #b0a0a0;
+            line-height: 28px;
+            font-size: 16px;
+            padding-left: 4px;
+            box-sizing: border-box;
+        }
+
+        .demo .my-page .my-turn-page li {
+            text-align: center;
+            line-height: 28px;
+            color: #303133;
+            margin: 0 5px;
+            width: 30px;
+            height: 28px;
+            background-color: #F4F4F5;
+            border-radius: 2px;
+            cursor: pointer;
+        }
+
+        .demo .my-page .my-turn-page .optPage {
+            background-color: #6280F3;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo"></div>
+
+    <script src="./js/jquery-3.5.1.js"></script>
+    <script src="./js/page.js"></script>
+    <script>
+        $('.demo').page({
+            page: 9,
+            size: 10,
+            // allSize: 100,
+            allPage: 10,
+            succsee:function(){
+                console.log(this.page,this.size);
+            }
+        })
+    </script>
+</body>
+
+</html>
