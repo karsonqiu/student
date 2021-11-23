@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>注册</title>
+        <link rel='stylesheet' type="text/css" href="./css/register.css">
+    </head>
+
+    <body>
+        <div class="backg">
+            <div class="register">
+                <h2>用户注册</h2>
+                <form action="#" class="register-form">
+                    <div>
+                        <label for='reg-user'>用户名</label>
+                        <input type="text" id="reg-user" name='reguser'>
+                    </div>
+                    <div>
+                        <label for='reg-account'>账号</label>
+                        <input type="text" id="reg-account" name='regaccount'>
+                    </div>
+                    <div>
+                        <label for='reg-password'>密码</label>
+                        <input type="password" id="reg-password" name='regpassword'>
+                    </div>
+                    <div>
+                        <label for='reg-repeatword'>确认密码</label>
+                        <input type="password" id="reg-repeatword" name='regrepeatword'>
+                    </div>
+                    <div class="positionr">
+                        <label></label>
+                        <button class="button-register">注册</button>
+                        <div class="login-button">返回登陆</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script type='text/javascript' src='./js/ajax.js'></script>
+        <script type='text/javascript' src='./js/cookie.js'></script>
+        <script>
+            function register(){
+                var buttonRegister = document.getElementsByClassName('button-register')[0];
+                var registerForm = document.getElementsByClassName('register-form')[0];
+                var loginButton = document.getElementsByClassName('login-button')[0];
+                loginButton.onclick = function(){
+                    location.href = './login.html';
+                }
+                buttonRegister.onclick = function(e){
+                    var event = e || window.event;
+                    event.preventDefault();
+                    var regUser = registerForm.reguser.value;
+                    var regAccount = registerForm.regaccount.value;
+                    var regPassword = registerForm.regpassword.value;
+                    var regRepeatword = registerForm.regrepeatword.value;
+                    if(regUser && regAccount && regPassword && regPassword && regRepeatword){
+                        var data = {
+                            account:regAccount,
+                            username:regUser,
+                            password:regPassword,
+                            rePassword:regRepeatword,
+                        }
+                        newAjax('POST','/api/student/stuRegister',data,function(){
+                                alert('注册成功');
+                                location.href = './login.html';
+                        })
+                    }
+                }
+            }
+            register()
+        </script>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>登录</title>
+        <link rel='stylesheet' type="text/css" href="./css/login.css">
+    </head>
+
+    <body>
+        <div class="backg">
+            <div class="login">
+                <h2>用户登陆</h2>
+                <form action="#" class="login-form">
+                    <div>
+                        <input type="text" id="account" name='account' placeholder='请输入用户名'>
+                    </div>
+                    <div>
+                        <input type="password" id="password" name='password'placeholder='请输入密码'>
+                    </div>
+                    <div class="fregister-botton">
+                        <span class="register-botton">注册用户</span>
+                    </div>
+                    <div>
+                        <button class="button-login">登录</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script type='text/javascript' src='./js/ajax.js'></script>
+        <script type='text/javascript' src='./js/cookie.js'></script>
+        <script>
+            function login(){
+                var buttonLogin = document.getElementsByClassName('button-login')[0];
+                var loginForm = document.getElementsByClassName('login-form')[0];
+                var registerBotton = document.getElementsByClassName('register-botton')[0];
+            
+                setCookie('username', '', -1)
+                registerBotton.onclick = function(){
+                    location.href = './register.html';
+                }
+                buttonLogin.onclick = function(e){
+                    var event = e || window.event;
+                    event.preventDefault();
+                    var account = loginForm.account.value;
+                    var password = loginForm.password.value;
+                    if(account && password){
+                        var data = {
+                            account:account,
+                            password:password,
+                        }
+                        newAjax('POST','/api/student/stuLogin',data,function(){
+                                setCookie('username',account);
+                                location.href = './index.html';
+                        })
+                    }
+                }
+            }
+            login() 
+        </script>
+    </body>
+</html>
